@@ -4,120 +4,597 @@ import PageLayout from '../layouts/PageLayout.astro';
 
 <PageLayout
   title="Our Costs"
-  description="Transparent information about Windeatts Solicitors' legal fees and costs. We believe in clear, upfront pricing."
-  subtitle="We believe in transparency. Here's what you can expect."
+  description="Transparent information about Windeatts Solicitors' legal fees and costs. SRA-required pricing information for conveyancing, probate, wills, LPAs and more."
+  subtitle="Our charges for the service to you. Our charges will be subject to VAT."
   breadcrumbs={[{ label: 'Our Costs' }]}
 >
   <div class="max-w-4xl">
     <div class="prose prose-lg prose-headings:font-(family-name:--font-heading) prose-headings:text-navy mb-12">
       <p>
-        We understand that legal costs are a concern for many people. We are committed to being open
-        and transparent about our fees from the outset, so you can make informed decisions about
-        your legal matters.
-      </p>
-      <p>
-        At your initial meeting or conversation, we will provide you with a clear estimate of costs
-        and explain how our fees are calculated. We will keep you updated if anything changes during
-        the course of your matter.
+        From 6th December 2018 the SRA (Solicitors Regulation Authority) requires all legal firms to publish
+        certain prices and service information across some of the services that we provide.
       </p>
     </div>
 
-    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">How We Charge</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      <div class="bg-cream rounded-xl p-6">
-        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Hourly Rate</h3>
-        <p class="text-sm text-gray-600">
-          For many matters, we charge based on the time spent. Our hourly rates depend on the
-          experience of the solicitor handling your case. We will always provide an estimate of
-          the likely total cost at the outset.
-        </p>
-      </div>
-      <div class="bg-cream rounded-xl p-6">
-        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Fixed Fee</h3>
-        <p class="text-sm text-gray-600">
-          For certain types of work — such as straightforward conveyancing, simple wills and
-          uncontested probate — we can offer a fixed fee so you know exactly what you'll pay
-          from the start.
-        </p>
-      </div>
-      <div class="bg-cream rounded-xl p-6">
-        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Conditional Fee</h3>
-        <p class="text-sm text-gray-600">
-          For personal injury and some clinical negligence claims, we may be able to offer a
-          "no win, no fee" arrangement. We will discuss whether this is appropriate for your case.
-        </p>
-      </div>
-      <div class="bg-cream rounded-xl p-6">
-        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Legal Aid</h3>
-        <p class="text-sm text-gray-600">
-          Legal aid is available for certain types of work. We can advise whether you may be
-          eligible and help you through the application process.
-        </p>
-      </div>
+    <!-- Other Charges -->
+    <div class="bg-cream rounded-xl p-6 mb-12">
+      <h2 class="font-(family-name:--font-heading) text-xl font-bold text-navy mb-3">Other Charges</h2>
+      <p class="text-sm text-gray-600 mb-3">
+        There will be a basic Compliance Charge of &pound;60+VAT on all matters other than property from 1 April 2025.
+        Please note our Compliance Charge for all property matters is &pound;100+VAT. This will cover electronic
+        identification verification, official copies and bankruptcy searches where applicable (this may increase if you
+        need additional searches for multiple people on your matter).
+      </p>
+      <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-2">Disbursements</h3>
+      <p class="text-sm text-gray-600 mb-3">
+        A fee we pay on your behalf as part of the service. Some disbursements will be subject to VAT but the majority will not.
+      </p>
+      <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-2">Additional and Abortive Costs</h3>
+      <p class="text-sm text-gray-600">
+        We will be clear from the outset which costs and disbursements you will incur and which will be subject to VAT.
+        Depending on the type of work, you will either receive a fixed fee quote or details of our hourly rates. If it
+        becomes apparent that there are unforeseen circumstances in connection with the transaction, we may have to increase
+        our charges. If that is the case, we shall inform you before we incur any additional costs. If, for any reason, the
+        transaction is aborted, there will be a charge for the work undertaken up to the point we are informed that the
+        transaction is no longer proceeding.
+      </p>
     </div>
 
-    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">Indicative Costs</h2>
+    <!-- Personnel Information -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">Personnel Information</h2>
 
-    <div class="overflow-x-auto mb-12">
+    <!-- Property Department -->
+    <h3 class="font-(family-name:--font-heading) text-xl font-semibold text-navy mb-4">Property</h3>
+    <div class="overflow-x-auto mb-8">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b-2 border-navy">
-            <th class="text-left py-3 pr-4 font-semibold text-navy">Service</th>
-            <th class="text-left py-3 pr-4 font-semibold text-navy">Typical Range</th>
-            <th class="text-left py-3 font-semibold text-navy">Basis</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Name</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Qualification</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Date of Qualification</th>
+            <th class="text-left py-3 font-semibold text-navy">Hourly Rate</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Residential conveyancing (sale or purchase)</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;850 &ndash; &pound;2,500 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed fee + disbursements</td>
+            <td class="py-3 pr-4 text-gray-700">Matthew Clarke</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor &amp; Partner</td>
+            <td class="py-3 pr-4 text-gray-600">15/11/1989</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Remortgage</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;500 &ndash; &pound;1,000 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed fee + disbursements</td>
+            <td class="py-3 pr-4 text-gray-700">Julie Tedder</td>
+            <td class="py-3 pr-4 text-gray-600">Lic. Conveyancer &amp; Partner</td>
+            <td class="py-3 pr-4 text-gray-600">01/09/2007</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Simple will (single)</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;250 &ndash; &pound;400 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed fee</td>
+            <td class="py-3 pr-4 text-gray-700">Richard Wing</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor &amp; Partner</td>
+            <td class="py-3 pr-4 text-gray-600">10/08/2020</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Mirror wills (couple)</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;400 &ndash; &pound;650 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed fee</td>
+            <td class="py-3 pr-4 text-gray-700">Simon Christmas</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">17/03/2003</td>
+            <td class="py-3 text-gray-600">&pound;250</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Lasting Power of Attorney (each)</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;350 &ndash; &pound;550 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed fee + registration fee</td>
+            <td class="py-3 pr-4 text-gray-700">Nick Dymond</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">01/10/2004</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Probate (uncontested, no IHT)</td>
-            <td class="py-3 pr-4 text-gray-600">&pound;2,000 &ndash; &pound;5,000 + VAT</td>
-            <td class="py-3 text-gray-500">Fixed or hourly</td>
+            <td class="py-3 pr-4 text-gray-700">Natalie Goh</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">01/09/2006</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
           </tr>
           <tr>
-            <td class="py-3 pr-4 text-gray-700">Employment tribunal claim</td>
-            <td class="py-3 pr-4 text-gray-600">From &pound;3,000 + VAT</td>
-            <td class="py-3 text-gray-500">Hourly rate</td>
+            <td class="py-3 pr-4 text-gray-700">Megan Green</td>
+            <td class="py-3 pr-4 text-gray-600">Paralegal ACILEx</td>
+            <td class="py-3 pr-4 text-gray-600">N/A</td>
+            <td class="py-3 text-gray-600">&pound;170</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Esther Wing</td>
+            <td class="py-3 pr-4 text-gray-600">Paralegal</td>
+            <td class="py-3 pr-4 text-gray-600">N/A</td>
+            <td class="py-3 text-gray-600">&pound;170</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Ella Brennan</td>
+            <td class="py-3 pr-4 text-gray-600">Registered Conveyancing Technician</td>
+            <td class="py-3 pr-4 text-gray-600">N/A</td>
+            <td class="py-3 text-gray-600">&ndash;</td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <!-- Private Client Department -->
+    <h3 class="font-(family-name:--font-heading) text-xl font-semibold text-navy mb-4">Private Client</h3>
+    <div class="overflow-x-auto mb-8">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Name</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Qualification</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Date of Qualification</th>
+            <th class="text-left py-3 font-semibold text-navy">Hourly Rate</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Chris Kendall</td>
+            <td class="py-3 pr-4 text-gray-600">Consultant Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">15/11/1995</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Felicity Perraton</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">16/01/2017</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Dee Willcocks</td>
+            <td class="py-3 pr-4 text-gray-600">CILEx</td>
+            <td class="py-3 pr-4 text-gray-600">31/01/2012</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Ashleigh Roberts</td>
+            <td class="py-3 pr-4 text-gray-600">Graduate Apprentice Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">N/A</td>
+            <td class="py-3 text-gray-600">&pound;170</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Litigation Department -->
+    <h3 class="font-(family-name:--font-heading) text-xl font-semibold text-navy mb-4">Litigation</h3>
+    <div class="overflow-x-auto mb-12">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Name</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Qualification</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Date of Qualification</th>
+            <th class="text-left py-3 font-semibold text-navy">Hourly Rate</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Fiona Hughes</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor &amp; Partner</td>
+            <td class="py-3 pr-4 text-gray-600">02/09/2002</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Heather Davis</td>
+            <td class="py-3 pr-4 text-gray-600">CILEx</td>
+            <td class="py-3 pr-4 text-gray-600">27/10/2008</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Jodie Hopper</td>
+            <td class="py-3 pr-4 text-gray-600">Solicitor</td>
+            <td class="py-3 pr-4 text-gray-600">08/06/2023</td>
+            <td class="py-3 text-gray-600">&pound;230</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Hourly Rate Bands -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">Our Hourly Rates</h2>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Level</th>
+            <th class="text-left py-3 font-semibold text-navy">Rate</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Partner or Consultant Solicitor</td>
+            <td class="py-3 text-gray-600">&pound;315</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Solicitor, Legal Executive, Licensed Conveyancer or Paralegal (8+ years&rsquo; experience)</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Solicitor, Legal Executive, Licensed Conveyancer or Associate/Graduate CILEx (4+ years&rsquo; experience)</td>
+            <td class="py-3 text-gray-600">&pound;250</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Solicitor, Legal Executive, Licensed Conveyancer or Associate/Graduate CILEx (less than 4 years&rsquo; experience)</td>
+            <td class="py-3 text-gray-600">&pound;230</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Trainee Solicitor or Paralegal (less than 4 years&rsquo; experience)</td>
+            <td class="py-3 text-gray-600">&pound;170</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-gray-500 mb-12">
+      If for any reason it is necessary for us to expedite work on your file due to Court deadline dates or other time limits,
+      which would involve placing your work in priority to any other clients in order to meet deadlines (which may involve working
+      evenings or weekends) we then have the discretion to charge a higher charge out rate. This will require your agreement.
+      These rates were reviewed and amended on 1st April 2025.
+    </p>
+
+    <!-- Residential Conveyancing -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Residential Conveyancing</h2>
+    <p class="text-sm text-gray-600 mb-6">
+      Our residential conveyancing charges start from &pound;950+VAT. The final quote will depend on the value of the property
+      and the complexity of the transaction. We would warn you that there are some charges made by others which we will not be
+      able to ascertain until we are instructed and make the necessary enquiries. We will inform you as soon as possible once
+      we know these additional charges.
+    </p>
+
+    <!-- Residential Sale -->
+    <h3 class="font-(family-name:--font-heading) text-xl font-semibold text-navy mb-4">Residential Sale</h3>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Property Sale Price</th>
+            <th class="text-left py-3 font-semibold text-navy">Our Charges</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;0 &ndash; &pound;250,000</td>
+            <td class="py-3 text-gray-600">&pound;950+VAT &ndash; &pound;1,250+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;250,001 &ndash; &pound;500,000</td>
+            <td class="py-3 text-gray-600">&pound;1,250+VAT &ndash; &pound;1,750+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;500,001 &ndash; &pound;800,000</td>
+            <td class="py-3 text-gray-600">&pound;1,750+VAT &ndash; &pound;2,350+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;800,001 &ndash; &pound;1,000,000+</td>
+            <td class="py-3 text-gray-600">&pound;2,350+VAT &ndash; &pound;2,750+VAT(+)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-cream rounded-xl p-6 mb-12">
+      <h4 class="font-(family-name:--font-heading) font-semibold text-navy text-base mb-3">Additional charges on a residential sale:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+        <li>&pound;200+VAT if the property is leasehold</li>
+        <li>&pound;150+VAT for a Statutory Declaration/Arranging bespoke insurance</li>
+        <li>&pound;150+VAT if you have a second mortgage or a Help to Buy loan</li>
+        <li>&pound;30+VAT for each CHAPS transfer (we do not charge for BACS payments)</li>
+        <li>Compliance charge (see &lsquo;Other Charges&rsquo; at the top of this page)</li>
+        <li>Management packs are sometimes required when dealing with a leasehold property or a house on an estate. These are obtained from the managing agents or the management company who will charge a fee. Their fee can vary but you should budget on a fee of approximately &pound;300.</li>
+      </ul>
+    </div>
+
+    <!-- Residential Purchase -->
+    <h3 class="font-(family-name:--font-heading) text-xl font-semibold text-navy mb-4">Residential Purchase</h3>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Property Purchase Price</th>
+            <th class="text-left py-3 font-semibold text-navy">Our Charges</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;0 &ndash; &pound;250,000</td>
+            <td class="py-3 text-gray-600">&pound;1,000+VAT &ndash; &pound;1,300+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;250,001 &ndash; &pound;500,000</td>
+            <td class="py-3 text-gray-600">&pound;1,300+VAT &ndash; &pound;1,800+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;500,001 &ndash; &pound;800,000</td>
+            <td class="py-3 text-gray-600">&pound;1,800+VAT &ndash; &pound;2,400+VAT</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">&pound;800,001 &ndash; &pound;1,000,000+</td>
+            <td class="py-3 text-gray-600">&pound;2,400+VAT &ndash; &pound;2,800+VAT(+)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-cream rounded-xl p-6 mb-12">
+      <h4 class="font-(family-name:--font-heading) font-semibold text-navy text-base mb-3">Additional charges on a residential purchase:</h4>
+      <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+        <li>&pound;225+VAT if the property is leasehold</li>
+        <li>&pound;150+VAT for a Statutory Declaration/Arranging bespoke insurance</li>
+        <li>&pound;250+VAT if you have a second mortgage or a Help to Buy loan</li>
+        <li>&pound;100+VAT if you have a Help to Buy ISA</li>
+        <li>&pound;30+VAT for each CHAPS transfer (we do not charge for BACS payments)</li>
+        <li>Compliance charge (see &lsquo;Other Charges&rsquo; at the top of this page)</li>
+        <li>Our charges for the searches for an average residential purchase will be approximately &pound;400 including VAT. We request &pound;400 on account at the beginning of the transaction to cover the cost of the searches.</li>
+        <li>When dealing with the purchase of leasehold properties it is quite common to have to enter into a Deed of Covenant with the Landlord or the Management Company as well as serving notice of the transaction on the landlord. This can result in increased charges payable to the management company or managing agents and you should allow approximately &pound;200 to deal with this.</li>
+      </ul>
+    </div>
+
+    <!-- Commercial Property -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Commercial Property</h2>
+    <p class="text-sm text-gray-600 mb-12">
+      Please <a href="/contact" class="text-navy underline">contact our commercial property lawyers</a> setting out your
+      requirements and we can then give you a competitive estimate.
+    </p>
+
+    <!-- Estate Administration -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Estate Administration</h2>
+    <div class="prose prose-sm prose-headings:font-(family-name:--font-heading) prose-headings:text-navy mb-6">
+      <p>
+        The cost of administering the estate of someone who has died will of course vary greatly according to many factors,
+        for example:
+      </p>
+      <ul>
+        <li>what is in the estate</li>
+        <li>how many beneficiaries there are and whether they get on with each other</li>
+        <li>whether Inheritance Tax is payable</li>
+        <li>who the executors are and how much help they are prepared or able to give</li>
+      </ul>
+      <p>
+        A more complex estate could therefore easily cost ten or more times to administer than a simple one. We always charge
+        by reference to the time spent by our lawyers rather than a percentage of the estate because we feel it is fairer, and
+        invariably cheaper.
+      </p>
+    </div>
+
+    <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-3">Full Estate Administration</h3>
+    <div class="prose prose-sm mb-4">
+      <p>
+        We anticipate this will take between 15 and 20 hours work at the hourly rates shown above. Total legal fees are
+        therefore estimated dependent on the fee earner you instruct, e.g.
+      </p>
+      <ul>
+        <li>Partners charging &pound;315 per hour = &pound;4,725 to &pound;6,300</li>
+        <li>Solicitors charging &pound;295 per hour = &pound;4,425 to &pound;5,900</li>
+      </ul>
+      <p>The work we do for you includes:</p>
+      <ul>
+        <li>Writing to banks and financial institutions to notify them of the death and obtaining valuations</li>
+        <li>Liaising with valuers of the family home and contents</li>
+        <li>Contacting the beneficiaries to tell them of their entitlement under the Will</li>
+        <li>Preparing a schedule of the assets and liabilities of the estate</li>
+        <li>Carrying out bankruptcy searches against all beneficiaries</li>
+        <li>If required to do so advertising for creditors</li>
+        <li>Preparing and submitting the Inheritance Tax Return of Estate Information form (IHT205)</li>
+        <li>Preparing and submitting the court application for the Grant of Probate</li>
+        <li>After receiving the Grant of Probate closing the bank accounts</li>
+        <li>Paying outstanding bills</li>
+        <li>After the sale of the house dealing with final utility bills and cancelling the insurance</li>
+        <li>Preparing estate accounts for the executors and on approval for the beneficiaries</li>
+        <li>Distributing the estate</li>
+      </ul>
+      <p>This estimate is for estates where:</p>
+      <ul>
+        <li>There is a valid will</li>
+        <li>There is no more than one property</li>
+        <li>There are no more than five bank or building society accounts</li>
+        <li>There are up to five beneficiaries</li>
+        <li>There are no disputes between beneficiaries</li>
+        <li>There is no Inheritance Tax payable and the executors do not need to submit a full account to HMRC</li>
+        <li>There are no claims made against the estate</li>
+      </ul>
+      <p>In addition to our charges there will be the following expenses:</p>
+      <ul>
+        <li>Probate application fee of &pound;300 plus &pound;1.50 for each copy required</li>
+        <li>Advertisements for creditors &ndash; protects against unexpected claims from unknown creditors, approximately &pound;200</li>
+      </ul>
+      <p>
+        <strong>Potential additional costs:</strong> If there is no Will or the estate consists of any shareholdings (including
+        stocks and bonds) there are likely to be additional costs that could range significantly depending on type of investment
+        and how it is to be dealt with. We can give you a more accurate quote once we have more information.
+      </p>
+      <p>Dealing with the sale or transfer of any property in the estate is not included.</p>
+      <p>
+        <strong>How long will this take?</strong> Typically, obtaining the grant of probate differs depending on whether it is
+        a taxable or non-taxable estate. The timescales do sometimes change, and this will be discussed in your initial meeting.
+        Collecting assets then follows, which can take between 4 to 6 weeks for cash assets but an uncertain time for a property sale.
+      </p>
+    </div>
+
+    <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-3">Obtaining a Grant of Probate Only</h3>
+    <div class="prose prose-sm mb-12">
+      <p>
+        We can help you by obtaining the Grant of Probate on your behalf, leaving the executors to provide the valuations and
+        deal with the estate assets after the Grant. We charge a fixed fee of &pound;1,500 plus VAT where there is no need to
+        complete a full Inheritance Tax account. Where a full Inheritance Tax account is required our fees will vary upon the
+        exact circumstances, complexity of the case and whether Inheritance Tax is payable, but they are usually between
+        &pound;2,500 to &pound;3,000 plus VAT.
+      </p>
+      <p>This includes:</p>
+      <ul>
+        <li>Providing the executors with details of what information they need to provide</li>
+        <li>On receipt of that information preparing and submitting the Inheritance Tax forms and court application for the Grant of Probate</li>
+        <li>Providing the Grant of Probate (and copies) to the executors</li>
+      </ul>
+      <p>
+        On average, the Grant of Probate will be received in around 16&ndash;24 weeks of the executors providing the information
+        required, depending on whether or not a full Inheritance Tax account is required and tax is payable.
+      </p>
+    </div>
+
+    <!-- Wills -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Wills</h2>
+    <p class="text-sm text-gray-600 mb-4">
+      In all cases prices are exclusive of VAT which will be charged at the standard rate.
+      Starting price for a simple Will dealt with by one of our qualified lawyers:
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm">
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">1 person</td>
+            <td class="py-3 text-gray-600">&pound;295</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">A couple</td>
+            <td class="py-3 text-gray-600">&pound;400</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose prose-sm mb-12">
+      <p>Hourly rates will apply for anything more complex, including:</p>
+      <ul>
+        <li>Initial or multiple meetings to take instructions lasting more than 30 minutes in total</li>
+        <li>Advice relating to the creation and use of trusts</li>
+        <li>The creation of a &lsquo;tenancy in common&rsquo; of jointly owned property</li>
+        <li>Advice regarding business or agricultural assets, foreign assets, Inheritance Tax planning etc</li>
+        <li>Home visits</li>
+      </ul>
+      <p>
+        Many people only need a simple Will and we try to keep those charges at an affordable level. We believe that you should
+        only pay for what you need.
+      </p>
+    </div>
+
+    <!-- Lasting Powers of Attorney -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Lasting Powers of Attorney (LPAs)</h2>
+    <div class="prose prose-sm mb-4">
+      <p>In all cases prices are exclusive of VAT which will be charged at the standard rate. There are two types of LPA:</p>
+      <ul>
+        <li>A <strong>Property and Affairs LPA</strong> enables your attorney(s) to make decisions on your behalf about your property and affairs, including paying your bills, collecting your income and benefits or selling your house.</li>
+        <li>A <strong>Health &amp; Welfare LPA</strong> allows your attorney(s) to make decisions on your behalf about your personal welfare, including whether to give or refuse consent to medical treatment.</li>
+      </ul>
+      <p>
+        Both types of LPA must be registered with the Office of the Public Guardian (&ldquo;OPG&rdquo;) and a fee paid to it
+        before they can be used. Certain people qualify for a fee reduction or exemption.
+      </p>
+    </div>
+
+    <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-3">Preparing and Registering LPAs</h3>
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Service</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Our Charges</th>
+            <th class="text-left py-3 font-semibold text-navy">OPG Fee</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">One person, one type of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;450+VAT</td>
+            <td class="py-3 text-gray-600">&pound;82</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">One person, both types of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;570+VAT</td>
+            <td class="py-3 text-gray-600">&pound;164</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">A couple, one type of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;520+VAT</td>
+            <td class="py-3 text-gray-600">&pound;164</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">A couple, both types of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;950+VAT</td>
+            <td class="py-3 text-gray-600">&pound;328</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-3">Separate Registration of LPAs</h3>
+    <div class="overflow-x-auto mb-12">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Service</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Our Charges</th>
+            <th class="text-left py-3 font-semibold text-navy">OPG Fee</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">One person, one type of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;150+VAT</td>
+            <td class="py-3 text-gray-600">&pound;82</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">One person, both types of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;175+VAT</td>
+            <td class="py-3 text-gray-600">&pound;164</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">A couple, one type of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;175+VAT</td>
+            <td class="py-3 text-gray-600">&pound;164</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">A couple, both types of LPA</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;300+VAT</td>
+            <td class="py-3 text-gray-600">&pound;328</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Debt Recovery -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-4">Debt Recovery</h2>
+    <div class="prose prose-sm mb-6">
+      <p>
+        These costs apply where your claim is in relation to an unpaid invoice which is not disputed and enforcement action is not
+        needed. If the other party disputes your claim at any point, we will discuss any further work required and provide you with
+        revised advice about costs if necessary, which could be on a fixed fee of &pound;360+VAT or an hourly rate if more extensive
+        work is needed.
+      </p>
+      <p>Our fee includes:</p>
+      <ul>
+        <li>Taking your instructions and reviewing documentation</li>
+        <li>Undertaking appropriate searches</li>
+        <li>Sending a letter before action</li>
+        <li>Receiving payment and sending onto you, or if the debt is not paid, drafting and issuing claim</li>
+        <li>Where no Acknowledgement of Service or Defence is received, applying to the court to enter Judgement in default</li>
+        <li>When Judgement in default is received, write to the other side to request payment</li>
+        <li>If payment is not received within 14 days, providing you with advice on next steps and likely costs</li>
+      </ul>
+      <p>
+        Matters usually take 12 weeks from receipt of instructions from you to receipt of payment from the other side, depending
+        on whether or not it is necessary to issue a claim.
+      </p>
+    </div>
+
+    <!-- Other Services -->
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">Other Services</h2>
+    <div class="space-y-4 mb-12">
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-2">Civil Litigation</h3>
+        <p class="text-sm text-gray-600">
+          All work undertaken on your behalf will be dealt on an hourly rate basis at the rates shown above.
+        </p>
+      </div>
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-2">Family Law</h3>
+        <p class="text-sm text-gray-600">
+          All work undertaken on your behalf will be dealt on an hourly rate basis at the rates shown above.
+        </p>
+      </div>
+    </div>
+
     <div class="bg-navy/5 rounded-xl p-6 text-sm text-gray-600">
       <p class="font-medium text-navy mb-2">Please note</p>
       <p>
-        The costs shown above are indicative only and will vary depending on the complexity of your
-        matter. Additional disbursements (third-party costs such as search fees, Land Registry fees,
-        court fees and counsel's fees) may also apply. We will always provide you with a detailed
-        estimate before commencing work.
-      </p>
-      <p class="mt-2">
         VAT is charged at the prevailing rate (currently 20%) on all fees and most disbursements.
+        All fees quoted above are exclusive of VAT unless otherwise stated. We will always provide
+        you with a detailed estimate before commencing work.
       </p>
     </div>
   </div>
