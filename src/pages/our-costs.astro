@@ -1,0 +1,124 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Our Costs"
+  description="Transparent information about Windeatts Solicitors' legal fees and costs. We believe in clear, upfront pricing."
+  subtitle="We believe in transparency. Here's what you can expect."
+  breadcrumbs={[{ label: 'Our Costs' }]}
+>
+  <div class="max-w-4xl">
+    <div class="prose prose-lg prose-headings:font-(family-name:--font-heading) prose-headings:text-navy mb-12">
+      <p>
+        We understand that legal costs are a concern for many people. We are committed to being open
+        and transparent about our fees from the outset, so you can make informed decisions about
+        your legal matters.
+      </p>
+      <p>
+        At your initial meeting or conversation, we will provide you with a clear estimate of costs
+        and explain how our fees are calculated. We will keep you updated if anything changes during
+        the course of your matter.
+      </p>
+    </div>
+
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">How We Charge</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Hourly Rate</h3>
+        <p class="text-sm text-gray-600">
+          For many matters, we charge based on the time spent. Our hourly rates depend on the
+          experience of the solicitor handling your case. We will always provide an estimate of
+          the likely total cost at the outset.
+        </p>
+      </div>
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Fixed Fee</h3>
+        <p class="text-sm text-gray-600">
+          For certain types of work — such as straightforward conveyancing, simple wills and
+          uncontested probate — we can offer a fixed fee so you know exactly what you'll pay
+          from the start.
+        </p>
+      </div>
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Conditional Fee</h3>
+        <p class="text-sm text-gray-600">
+          For personal injury and some clinical negligence claims, we may be able to offer a
+          "no win, no fee" arrangement. We will discuss whether this is appropriate for your case.
+        </p>
+      </div>
+      <div class="bg-cream rounded-xl p-6">
+        <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-3">Legal Aid</h3>
+        <p class="text-sm text-gray-600">
+          Legal aid is available for certain types of work. We can advise whether you may be
+          eligible and help you through the application process.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">Indicative Costs</h2>
+
+    <div class="overflow-x-auto mb-12">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Service</th>
+            <th class="text-left py-3 pr-4 font-semibold text-navy">Typical Range</th>
+            <th class="text-left py-3 font-semibold text-navy">Basis</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Residential conveyancing (sale or purchase)</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;850 &ndash; &pound;2,500 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed fee + disbursements</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Remortgage</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;500 &ndash; &pound;1,000 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed fee + disbursements</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Simple will (single)</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;250 &ndash; &pound;400 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed fee</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Mirror wills (couple)</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;400 &ndash; &pound;650 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed fee</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Lasting Power of Attorney (each)</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;350 &ndash; &pound;550 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed fee + registration fee</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Probate (uncontested, no IHT)</td>
+            <td class="py-3 pr-4 text-gray-600">&pound;2,000 &ndash; &pound;5,000 + VAT</td>
+            <td class="py-3 text-gray-500">Fixed or hourly</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-gray-700">Employment tribunal claim</td>
+            <td class="py-3 pr-4 text-gray-600">From &pound;3,000 + VAT</td>
+            <td class="py-3 text-gray-500">Hourly rate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-navy/5 rounded-xl p-6 text-sm text-gray-600">
+      <p class="font-medium text-navy mb-2">Please note</p>
+      <p>
+        The costs shown above are indicative only and will vary depending on the complexity of your
+        matter. Additional disbursements (third-party costs such as search fees, Land Registry fees,
+        court fees and counsel's fees) may also apply. We will always provide you with a detailed
+        estimate before commencing work.
+      </p>
+      <p class="mt-2">
+        VAT is charged at the prevailing rate (currently 20%) on all fees and most disbursements.
+      </p>
+    </div>
+  </div>
+</PageLayout>

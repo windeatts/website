@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+export async function getStaticPaths() {
+  const allServices = await getCollection('services');
+  const allTeam = await getCollection('team');
+
+  return allServices.map((service) => {
+    const relatedServices = service.data.relatedServices
+      .map((slug) => {
+        const found = allServices.find((s) => s.id === slug);
+        return found ? { title: found.data.title, slug: found.id } : null;
+      })
+      .filter(Boolean) as { title: string; slug: string }[];
+
+    const teamMembers = allTeam
+      .filter((member) => member.data.specialisms.includes(service.id))
+      .sort((a, b) => a.data.order - b.data.order)
+      .map((member) => ({
+        name: member.data.name,
+        slug: member.id,
+        title: member.data.title,
+        photo: member.data.photo,
+      }));
+
+    return {
+      params: { slug: service.id },
+      props: { serviceId: service.id, relatedServices, teamMembers },
+    };
+  });
+}
+
+import { render } from 'astro:content';
+
+const { serviceId, relatedServices, teamMembers } = Astro.props;
+const allServices = await getCollection('services');
+const service = allServices.find((s) => s.id === serviceId)!;
+const { Content } = await render(service);
+---
+
+<ServiceLayout
+  title={service.data.title}
+  description={service.data.summary}
+  category={service.data.category}
+  department={service.data.department}
+  relatedServices={relatedServices}
+  teamMembers={teamMembers}
+>
+  <Content />
+</ServiceLayout>

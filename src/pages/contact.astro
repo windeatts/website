@@ -1,0 +1,64 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import OfficeInfo from '../components/OfficeInfo.astro';
+---
+
+<PageLayout
+  title="Contact"
+  description="Get in touch with Windeatts Solicitors. Offices in Kingsbridge and Totnes, Devon. Call 01548 858947 or send us an enquiry."
+  subtitle="We're here to help. Get in touch with our team in Kingsbridge or Totnes."
+  breadcrumbs={[{ label: 'Contact' }]}
+>
+  <div class="lg:grid lg:grid-cols-5 lg:gap-12">
+    <!-- Form -->
+    <div class="lg:col-span-3">
+      <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">
+        Send us an enquiry
+      </h2>
+      <ContactForm />
+    </div>
+
+    <!-- Quick contact -->
+    <div class="lg:col-span-2 mt-12 lg:mt-0">
+      <div class="bg-cream rounded-xl p-6 lg:p-8 space-y-6">
+        <div>
+          <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-2">
+            Prefer to call?
+          </h3>
+          <div class="space-y-2">
+            <a href="tel:01548858947" class="block text-navy font-medium hover:text-gold transition-colors">
+              Kingsbridge: 01548 858947
+            </a>
+            <a href="tel:01803865028" class="block text-navy font-medium hover:text-gold transition-colors">
+              Totnes: 01803 865028
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-2">
+            Email
+          </h3>
+          <a href="mailto:law@windeatts.co.uk" class="text-navy hover:text-gold transition-colors">
+            law@windeatts.co.uk
+          </a>
+        </div>
+        <div>
+          <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg mb-2">
+            Office hours
+          </h3>
+          <p class="text-gray-600 text-sm">Monday to Friday: 9:00am &ndash; 5:00pm</p>
+          <p class="text-gray-500 text-xs mt-1">Closed on weekends and bank holidays</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Office locations -->
+  <div class="mt-16">
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-8">
+      Our offices
+    </h2>
+    <OfficeInfo />
+  </div>
+</PageLayout>

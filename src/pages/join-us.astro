@@ -1,0 +1,80 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+const vacancies = await getCollection('vacancies');
+const activeVacancies = vacancies.filter((v) => v.data.active).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<PageLayout
+  title="Join Us"
+  description="Career opportunities at Windeatts Solicitors. Join our team in Kingsbridge or Totnes, Devon."
+  subtitle="We're always looking for talented people to join our team."
+  breadcrumbs={[{ label: 'Careers' }]}
+>
+  <div class="max-w-3xl">
+    <div class="prose prose-lg prose-headings:font-(family-name:--font-heading) prose-headings:text-navy mb-12">
+      <p>
+        Windeatts is a friendly, supportive firm with a strong commitment to professional development.
+        We offer a genuine work-life balance in one of the most beautiful parts of the country,
+        with offices in the thriving towns of Kingsbridge and Totnes.
+      </p>
+      <p>
+        We invest in our people. Whether you're a newly qualified solicitor, an experienced
+        practitioner or a talented support professional, we'd love to hear from you.
+      </p>
+
+      <h2>Why Windeatts?</h2>
+      <ul>
+        <li>A supportive, collegiate working environment</li>
+        <li>Genuine work-life balance in beautiful South Devon</li>
+        <li>Commitment to professional development and training</li>
+        <li>Competitive salary and benefits package</li>
+        <li>The opportunity to work on a varied and interesting caseload</li>
+        <li>Part of a team with a proud history stretching back to 1832</li>
+      </ul>
+    </div>
+
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy mb-6">
+      Current Vacancies
+    </h2>
+
+    {activeVacancies.length > 0 ? (
+      <div class="space-y-4 mb-12">
+        {activeVacancies.map(async (vacancy) => {
+          const { Content } = await render(vacancy);
+          return (
+            <div class="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 class="font-(family-name:--font-heading) font-semibold text-navy text-lg">{vacancy.data.title}</h3>
+              <div class="flex flex-wrap gap-3 mt-2">
+                <span class="text-xs bg-cream px-2 py-1 rounded text-gray-600">{vacancy.data.location}</span>
+                <span class="text-xs bg-cream px-2 py-1 rounded text-gray-600">{vacancy.data.type}</span>
+              </div>
+              <div class="mt-4 prose prose-sm">
+                <Content />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    ) : (
+      <div class="bg-cream rounded-xl p-8 text-center mb-12">
+        <p class="text-gray-600">
+          We don't have any specific vacancies at the moment, but we're always interested in
+          hearing from talented legal professionals.
+        </p>
+      </div>
+    )}
+
+    <div class="bg-navy rounded-xl p-8 text-white">
+      <h3 class="font-(family-name:--font-heading) text-xl font-semibold mb-3">Speculative Applications</h3>
+      <p class="text-gray-300 mb-4">
+        Even if we don't currently have a vacancy that matches your profile, we welcome speculative
+        applications. Please send your CV and a covering letter to:
+      </p>
+      <a href="mailto:law@windeatts.co.uk" class="text-gold hover:text-gold-light transition-colors font-medium">
+        law@windeatts.co.uk
+      </a>
+    </div>
+  </div>
+</PageLayout>

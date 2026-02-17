@@ -1,0 +1,64 @@
+---
+interface Props {
+  variant?: 'card' | 'inline';
+}
+
+const { variant = 'card' } = Astro.props;
+
+const offices = [
+  {
+    name: 'Kingsbridge Office',
+    address: ['20 Fore Street', 'Kingsbridge', 'Devon TQ7 1NY'],
+    phone: '01548 858947',
+    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.5!2d-3.7753!3d50.2842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDE3JzAzLjEiTiAzwrA0NiczMi4zIlc!5e0!3m2!1sen!2suk!4v1',
+    hours: 'Mon-Fri: 9:00am - 5:00pm',
+  },
+  {
+    name: 'Totnes Office',
+    address: ['42 Fore Street', 'Totnes', 'Devon TQ9 5RP'],
+    phone: '01803 865028',
+    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2550.5!2d-3.6864!3d50.4315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDI1JzUzLjQiTiAzwrA0MScxMS4wIlc!5e0!3m2!1sen!2suk!4v1',
+    hours: 'Mon-Fri: 9:00am - 5:00pm',
+  },
+];
+---
+
+<div class:list={[
+  variant === 'card'
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8'
+    : 'space-y-6',
+]}>
+  {offices.map((office) => (
+    <div class:list={[
+      variant === 'card'
+        ? 'bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden'
+        : '',
+    ]}>
+      {variant === 'card' && (
+        <div class="aspect-video">
+          <iframe
+            src={office.mapUrl}
+            class="w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Map showing ${office.name} location`}
+          ></iframe>
+        </div>
+      )}
+      <div class:list={[variant === 'card' ? 'p-6' : '']}>
+        <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-3">
+          {office.name}
+        </h3>
+        <address class="not-italic text-sm text-gray-600 space-y-2">
+          <p>{office.address.join(', ')}</p>
+          <p>
+            <a href={`tel:${office.phone.replace(/\s/g, '')}`} class="text-navy font-medium hover:text-gold transition-colors">
+              {office.phone}
+            </a>
+          </p>
+          <p>{office.hours}</p>
+        </address>
+      </div>
+    </div>
+  ))}
+</div>

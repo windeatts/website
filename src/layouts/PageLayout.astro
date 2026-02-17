@@ -1,0 +1,40 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  subtitle?: string;
+  breadcrumbs?: Crumb[];
+  heroSize?: 'sm' | 'md' | 'lg';
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  subtitle,
+  breadcrumbs,
+  heroSize = 'sm',
+  canonical,
+  ogImage,
+  jsonLd,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} jsonLd={jsonLd}>
+  <Hero title={title} subtitle={subtitle} size={heroSize} />
+  {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <slot />
+  </div>
+</BaseLayout>

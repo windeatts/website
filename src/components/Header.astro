@@ -1,0 +1,184 @@
+---
+const currentPath = Astro.url.pathname;
+
+const personalServices = [
+  { title: 'Buying or Selling a Property', href: '/services/buying-or-selling-a-property' },
+  { title: 'Co-owning Property', href: '/services/co-owning-property' },
+  { title: 'Remortgage & Equity Release', href: '/services/remortgage-equity-release' },
+  { title: 'Probate & Estate Administration', href: '/services/probate-estate-administration' },
+  { title: 'Planning for the Future', href: '/services/planning-for-the-future' },
+  { title: 'Trust Funds & Inheritance Tax', href: '/services/trust-funds-inheritance-tax' },
+  { title: 'Services for the Older Client', href: '/services/services-for-the-older-client' },
+  { title: 'Family Law', href: '/services/family-law' },
+  { title: 'Personal Injury & Clinical Negligence', href: '/services/personal-injury-clinical-negligence' },
+];
+
+const businessServices = [
+  { title: 'Commercial Property', href: '/services/commercial-property' },
+  { title: 'Buying or Selling a Business', href: '/services/buying-or-selling-a-business' },
+  { title: 'Employment Law', href: '/services/employment-law' },
+  { title: 'Contract & Commercial Litigation', href: '/services/contract-commercial-litigation' },
+  { title: 'Residential Tenancy Agreements', href: '/services/residential-tenancy-agreements' },
+  { title: 'Property Disputes', href: '/services/property-disputes' },
+];
+
+const navItems = [
+  { title: 'Home', href: '/' },
+  {
+    title: 'Services for You',
+    href: '/services-for-you',
+    children: personalServices,
+  },
+  {
+    title: 'Services for Business',
+    href: '/services-for-business',
+    children: businessServices,
+  },
+  { title: 'Our Team', href: '/our-team' },
+  { title: 'Our Costs', href: '/our-costs' },
+  { title: 'Contact', href: '/contact' },
+];
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="bg-navy text-white sticky top-0 z-50">
+  <!-- Top bar -->
+  <div class="bg-navy-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2 text-sm">
+      <div class="hidden sm:flex items-center gap-6">
+        <a href="tel:01548858947" class="hover:text-gold transition-colors">
+          <span class="sr-only">Kingsbridge phone: </span>01548 858947
+        </a>
+        <a href="tel:01803865028" class="hover:text-gold transition-colors">
+          <span class="sr-only">Totnes phone: </span>01803 865028
+        </a>
+      </div>
+      <a href="mailto:law@windeatts.co.uk" class="hover:text-gold transition-colors">
+        law@windeatts.co.uk
+      </a>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 shrink-0">
+        <span class="font-(family-name:--font-heading) text-xl lg:text-2xl font-bold tracking-tight">
+          Windeatts
+        </span>
+        <span class="hidden md:inline text-gold text-sm font-medium">Est. 1832</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navItems.map((item) => (
+          <div class="relative group">
+            <a
+              href={item.href}
+              class:list={[
+                'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+                isActive(item.href) ? 'text-gold' : 'text-white hover:text-gold',
+              ]}
+            >
+              {item.title}
+              {item.children && (
+                <svg class="inline-block ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </a>
+            {item.children && (
+              <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[280px]">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class:list={[
+                        'block px-4 py-2.5 text-sm transition-colors',
+                        currentPath === child.href
+                          ? 'text-gold bg-cream'
+                          : 'text-gray-700 hover:bg-cream hover:text-navy',
+                      ]}
+                    >
+                      {child.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        class="lg:hidden p-2 rounded-md text-white hover:text-gold transition-colors"
+        aria-label="Open menu"
+        id="mobile-menu-btn"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden hidden bg-navy-dark border-t border-white/10">
+    <div class="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
+      {navItems.map((item) => (
+        <>
+          <a
+            href={item.href}
+            class:list={[
+              'block px-3 py-2.5 text-sm font-medium rounded-md transition-colors',
+              isActive(item.href) ? 'text-gold bg-white/5' : 'text-white hover:text-gold hover:bg-white/5',
+            ]}
+          >
+            {item.title}
+          </a>
+          {item.children && (
+            <div class="pl-4 space-y-1">
+              {item.children.map((child) => (
+                <a
+                  href={child.href}
+                  class:list={[
+                    'block px-3 py-2 text-sm rounded-md transition-colors',
+                    currentPath === child.href
+                      ? 'text-gold bg-white/5'
+                      : 'text-gray-300 hover:text-gold hover:bg-white/5',
+                  ]}
+                >
+                  {child.title}
+                </a>
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+
+      <div class="pt-4 border-t border-white/10 space-y-2">
+        <a href="tel:01548858947" class="block px-3 py-2 text-sm text-gray-300 hover:text-gold">
+          Kingsbridge: 01548 858947
+        </a>
+        <a href="tel:01803865028" class="block px-3 py-2 text-sm text-gray-300 hover:text-gold">
+          Totnes: 01803 865028
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const allServices = await getCollection('services');
+const personalServices = allServices
+  .filter((service) => service.data.category === 'personal')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<PageLayout
+  title="Services for You"
+  description="Personal legal services from Windeatts Solicitors. Expert advice on property, wills, probate, family law, trusts and personal injury from our offices in Kingsbridge and Totnes."
+  subtitle="Expert legal advice for individuals and families, from buying your first home to planning for the future."
+  breadcrumbs={[{ label: 'Services for You' }]}
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {personalServices.map((service) => (
+      <ServiceCard
+        title={service.data.title}
+        summary={service.data.summary}
+        href={`/services/${service.id}`}
+        icon={service.data.icon}
+      />
+    ))}
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-16 bg-cream rounded-xl p-8 lg:p-12 text-center">
+    <h2 class="font-(family-name:--font-heading) text-2xl font-bold text-navy">
+      Not sure where to start?
+    </h2>
+    <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+      If you are unsure which service you need, get in touch and our team will point you in the right direction. There is no obligation and we are always happy to help.
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/contact"
+        class="bg-gold hover:bg-gold-dark text-navy font-semibold px-6 py-3 rounded-lg transition-colors"
+      >
+        Get in touch
+      </a>
+      <a
+        href="tel:01548858947"
+        class="border border-navy/20 hover:border-navy text-navy font-semibold px-6 py-3 rounded-lg transition-colors"
+      >
+        Call 01548 858947
+      </a>
+    </div>
+  </div>
+</PageLayout>

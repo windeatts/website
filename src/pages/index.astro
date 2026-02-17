@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import OfficeInfo from '../components/OfficeInfo.astro';
+import Testimonial from '../components/Testimonial.astro';
+
+const personalServices = [
+  { title: 'Buying or Selling a Property', summary: 'Expert conveyancing for residential property transactions across Devon and beyond.', href: '/services/buying-or-selling-a-property', icon: 'home' },
+  { title: 'Probate & Estate Administration', summary: 'Compassionate guidance through probate and the administration of estates.', href: '/services/probate-estate-administration', icon: 'document' },
+  { title: 'Planning for the Future', summary: 'Wills, Lasting Powers of Attorney and advance planning to protect what matters.', href: '/services/planning-for-the-future', icon: 'shield' },
+  { title: 'Family Law', summary: 'Sensitive, practical advice on divorce, separation and children matters.', href: '/services/family-law', icon: 'heart' },
+  { title: 'Trust Funds & Inheritance Tax', summary: 'Strategic tax planning and trust administration to preserve family wealth.', href: '/services/trust-funds-inheritance-tax', icon: 'currency' },
+  { title: 'Personal Injury', summary: 'Dedicated representation for personal injury and clinical negligence claims.', href: '/services/personal-injury-clinical-negligence', icon: 'scale' },
+];
+
+const businessServices = [
+  { title: 'Commercial Property', summary: 'Acquisitions, disposals, leases and development work for businesses.', href: '/services/commercial-property', icon: 'building' },
+  { title: 'Buying or Selling a Business', summary: 'Expert guidance through business sales, acquisitions and mergers.', href: '/services/buying-or-selling-a-business', icon: 'briefcase' },
+  { title: 'Employment Law', summary: 'Practical employment advice for businesses and individuals.', href: '/services/employment-law', icon: 'clipboard' },
+  { title: 'Commercial Litigation', summary: 'Resolving commercial disputes efficiently and effectively.', href: '/services/contract-commercial-litigation', icon: 'scale' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'Windeatts Solicitors',
+  description: 'Established in 1832, Windeatts is one of the oldest solicitors\' practices in Devon, serving clients from offices in Kingsbridge and Totnes.',
+  url: 'https://www.windeatts.co.uk',
+  telephone: '01548 858947',
+  email: 'law@windeatts.co.uk',
+  foundingDate: '1832',
+  address: [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '20 Fore Street',
+      addressLocality: 'Kingsbridge',
+      addressRegion: 'Devon',
+      postalCode: 'TQ7 1NY',
+      addressCountry: 'GB',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '42 Fore Street',
+      addressLocality: 'Totnes',
+      addressRegion: 'Devon',
+      postalCode: 'TQ9 5RP',
+      addressCountry: 'GB',
+    },
+  ],
+  sameAs: [],
+};
+---
+
+<BaseLayout
+  title="Home"
+  description="Windeatts Solicitors — established 1832. Trusted legal advice from our offices in Kingsbridge and Totnes, Devon. Property, wills, probate, family law and business services."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="bg-navy text-white py-24 lg:py-36 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy to-navy-dark" />
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-gold font-medium mb-4 tracking-wide uppercase text-sm">Est. 1832</p>
+        <h1 class="font-(family-name:--font-heading) text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          Trusted legal advice for nearly
+          <span class="text-gold">200 years</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+          From our offices in Kingsbridge and Totnes, we provide expert legal services
+          for individuals, families and businesses across Devon and beyond.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact"
+            class="bg-gold hover:bg-gold-dark text-navy font-semibold px-6 py-3 rounded-lg transition-colors text-center"
+          >
+            Get in touch
+          </a>
+          <a
+            href="/services-for-you"
+            class="border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center"
+          >
+            Our services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key values -->
+  <section class="bg-cream py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-navy/5 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 class="font-(family-name:--font-heading) font-semibold text-navy text-lg">Heritage</h2>
+          <p class="mt-2 text-sm text-gray-600">
+            One of Devon's oldest practices, established in 1832 and rooted in the South Hams community.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-navy/5 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h2 class="font-(family-name:--font-heading) font-semibold text-navy text-lg">Personal</h2>
+          <p class="mt-2 text-sm text-gray-600">
+            A dedicated team who take the time to understand your needs and provide clear, practical advice.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-navy/5 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h2 class="font-(family-name:--font-heading) font-semibold text-navy text-lg">Trusted</h2>
+          <p class="mt-2 text-sm text-gray-600">
+            Regulated by the Solicitors Regulation Authority, delivering quality legal services you can depend on.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for You -->
+  <section class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-(family-name:--font-heading) text-3xl font-bold text-navy">Services for You</h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Expert legal advice for individuals and families, from buying your first home to planning for the future.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {personalServices.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/services-for-you" class="text-gold hover:text-gold-dark font-medium transition-colors">
+          View all personal services &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services for Business -->
+  <section class="py-16 lg:py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-(family-name:--font-heading) text-3xl font-bold text-navy">Services for Business</h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Commercial legal support for businesses of all sizes, from start-ups to established enterprises.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {businessServices.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/services-for-business" class="text-gold hover:text-gold-dark font-medium transition-colors">
+          View all business services &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Testimonial
+        quote="Windeatts handled the sale of our property with great professionalism and care. They kept us informed at every stage and made the whole process straightforward."
+        author="Property Client, Kingsbridge"
+        service="Residential Conveyancing"
+      />
+    </div>
+  </section>
+
+  <!-- Offices -->
+  <section class="py-16 lg:py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-(family-name:--font-heading) text-3xl font-bold text-navy">Our Offices</h2>
+        <p class="mt-3 text-gray-600">
+          Visit us in Kingsbridge or Totnes, or <a href="/contact" class="text-gold hover:text-gold-dark transition-colors">get in touch</a> to arrange a consultation.
+        </p>
+      </div>
+      <OfficeInfo />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-(family-name:--font-heading) text-3xl font-bold text-white">How can we help?</h2>
+      <p class="mt-4 text-gray-300 text-lg">
+        Whether you need advice on a property matter, help with a will, or support for your business,
+        our experienced team is here to help.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-gold hover:bg-gold-dark text-navy font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Contact us
+        </a>
+        <a
+          href="tel:01548858947"
+          class="border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Call 01548 858947
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

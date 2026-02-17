@@ -1,0 +1,17 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  service?: string;
+}
+
+const { quote, author, service } = Astro.props;
+---
+
+<blockquote class="bg-cream rounded-xl p-6 lg:p-8 border-l-4 border-gold">
+  <p class="text-gray-700 leading-relaxed italic">&ldquo;{quote}&rdquo;</p>
+  <footer class="mt-4">
+    <p class="text-sm font-medium text-navy">{author}</p>
+    {service && <p class="text-xs text-gray-500 mt-0.5">{service}</p>}
+  </footer>
+</blockquote>

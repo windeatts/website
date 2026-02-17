@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours */
+  --color-navy: #1a2744;
+  --color-navy-light: #243356;
+  --color-navy-dark: #0f1a2e;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b86a;
+  --color-gold-dark: #b08f3a;
+  --color-cream: #faf8f5;
+  --color-cream-dark: #f0ece5;
+
+  /* Typography */
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}

@@ -1,0 +1,92 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main footer -->
+    <div class="py-12 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Brand -->
+      <div>
+        <h2 class="font-(family-name:--font-heading) text-xl font-bold mb-4">Windeatts</h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Established in 1832, Windeatts is one of the oldest solicitors' practices in Devon,
+          serving clients from our offices in Kingsbridge and Totnes.
+        </p>
+      </div>
+
+      <!-- Kingsbridge Office -->
+      <div>
+        <h3 class="font-semibold text-gold mb-4">Kingsbridge Office</h3>
+        <address class="text-gray-300 text-sm not-italic leading-relaxed space-y-2">
+          <p>20 Fore Street<br />Kingsbridge<br />Devon TQ7 1NY</p>
+          <p>
+            <a href="tel:01548858947" class="hover:text-gold transition-colors">01548 858947</a>
+          </p>
+          <p>
+            <a href="mailto:law@windeatts.co.uk" class="hover:text-gold transition-colors">law@windeatts.co.uk</a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Totnes Office -->
+      <div>
+        <h3 class="font-semibold text-gold mb-4">Totnes Office</h3>
+        <address class="text-gray-300 text-sm not-italic leading-relaxed space-y-2">
+          <p>42 Fore Street<br />Totnes<br />Devon TQ9 5RP</p>
+          <p>
+            <a href="tel:01803865028" class="hover:text-gold transition-colors">01803 865028</a>
+          </p>
+          <p>
+            <a href="mailto:law@windeatts.co.uk" class="hover:text-gold transition-colors">law@windeatts.co.uk</a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-semibold text-gold mb-4">Information</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/our-costs" class="text-gray-300 hover:text-gold transition-colors">Our Costs</a></li>
+          <li><a href="/complaints" class="text-gray-300 hover:text-gold transition-colors">Complaints Procedure</a></li>
+          <li><a href="/privacy-policy" class="text-gray-300 hover:text-gold transition-colors">Privacy Policy</a></li>
+          <li><a href="/general-information" class="text-gray-300 hover:text-gold transition-colors">General Information</a></li>
+          <li><a href="/join-us" class="text-gray-300 hover:text-gold transition-colors">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SRA Compliance bar -->
+    <div class="border-t border-white/10 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <!-- SRA Digital Badge -->
+          <a
+            href="https://www.sra.org.uk/consumers/register/organisation/?sraNumber=636433"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shrink-0"
+          >
+            <img
+              src="https://www.sra.org.uk/media/sra-digital-badge.png"
+              alt="Solicitors Regulation Authority"
+              width="64"
+              height="64"
+              loading="lazy"
+            />
+          </a>
+          <div class="text-xs text-gray-400 leading-relaxed">
+            <p>Windeatts LLP is a Limited Liability Partnership registered in England & Wales (OC382943)</p>
+            <p>Authorised and regulated by the Solicitors Regulation Authority (SRA No. 636433)</p>
+            <p>VAT Registration Number: 141 4088 92</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-white/10 py-4 text-center text-xs text-gray-500">
+      <p>&copy; {currentYear} Windeatts LLP. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

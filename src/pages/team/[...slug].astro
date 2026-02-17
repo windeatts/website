@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const allTeam = await getCollection('team');
+  const allServices = await getCollection('services');
+
+  return allTeam.map((member) => {
+    // Find services this team member specialises in
+    const specialisms = member.data.specialisms
+      .map((slug) => {
+        const found = allServices.find((s) => s.id === slug);
+        return found ? { title: found.data.title, slug: found.id } : null;
+      })
+      .filter(Boolean) as { title: string; slug: string }[];
+
+    return {
+      params: { slug: member.id },
+      props: { memberId: member.id, specialisms },
+    };
+  });
+}
+
+import { render } from 'astro:content';
+
+const { memberId, specialisms } = Astro.props;
+const allTeam = await getCollection('team');
+const member = allTeam.find((m) => m.id === memberId)!;
+const { Content } = await render(member);
+
+const departmentLabels: Record<string, string> = {
+  property: 'Property',
+  'private-client': 'Private Client',
+  litigation: 'Litigation',
+};
+
+const departmentLabel = departmentLabels[member.data.department] || member.data.department;
+---
+
+<BaseLayout
+  title={member.data.name}
+  description={`${member.data.name} — ${member.data.title} at Windeatts Solicitors. ${member.data.role} in the ${departmentLabel} department.`}
+>
+  <Hero title={member.data.name} subtitle={member.data.title} size="sm" />
+  <Breadcrumbs items={[{ label: 'Our Team', href: '/our-team' }, { label: member.data.name }]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+      <!-- Main content -->
+      <div class="lg:col-span-2">
+        <div class="prose prose-lg max-w-none prose-headings:font-(family-name:--font-heading) prose-headings:text-navy prose-a:text-gold prose-a:no-underline hover:prose-a:underline">
+          <Content />
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="mt-12 lg:mt-0 space-y-8">
+        <!-- Photo & contact details -->
+        <div class="bg-cream rounded-xl p-6 space-y-4">
+          {member.data.photo && (
+            <div class="aspect-square rounded-lg overflow-hidden">
+              <img
+                src={member.data.photo}
+                alt={member.data.name}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div>
+            <h2 class="font-(family-name:--font-heading) font-semibold text-navy text-lg">
+              {member.data.name}
+            </h2>
+            <p class="text-gold text-sm">{member.data.title}</p>
+            <p class="text-gray-500 text-xs mt-1">{departmentLabel} Department</p>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-gray-200">
+            <a
+              href={`tel:${member.data.phone.replace(/\s/g, '')}`}
+              class="flex items-center gap-2 text-sm text-gray-700 hover:text-gold transition-colors"
+            >
+              <svg class="w-4 h-4 text-navy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              {member.data.phone}
+            </a>
+            <a
+              href={`mailto:${member.data.email}`}
+              class="flex items-center gap-2 text-sm text-gray-700 hover:text-gold transition-colors"
+            >
+              <svg class="w-4 h-4 text-navy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              {member.data.email}
+            </a>
+          </div>
+        </div>
+
+        <!-- Specialisms -->
+        {specialisms.length > 0 && (
+          <div>
+            <h3 class="font-(family-name:--font-heading) text-lg font-semibold text-navy mb-4">
+              Specialisms
+            </h3>
+            <ul class="space-y-2">
+              {specialisms.map((service) => (
+                <li>
+                  <a
+                    href={`/services/${service.slug}`}
+                    class="flex items-center gap-2 text-sm text-gray-600 hover:text-gold transition-colors"
+                  >
+                    <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    {service.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- CTA -->
+        <div class="bg-navy rounded-xl p-6 text-white">
+          <h3 class="font-(family-name:--font-heading) text-lg font-semibold mb-3">
+            Speak to {member.data.name.split(' ')[0]}
+          </h3>
+          <p class="text-gray-300 text-sm mb-4">
+            Get in touch to discuss your legal matter with {member.data.name.split(' ')[0]}.
+          </p>
+          <a
+            href="/contact"
+            class="inline-block bg-gold hover:bg-gold-dark text-navy font-semibold px-4 py-2 rounded-lg transition-colors text-sm"
+          >
+            Send enquiry
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
