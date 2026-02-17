@@ -79,19 +79,18 @@ const currentYear = new Date().getFullYear();
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex flex-col sm:flex-row items-center gap-6">
           <div class="flex items-center gap-4 shrink-0">
-            <!-- SRA Digital Badge -->
+            <!-- SRA Badge -->
             <a
               href="https://www.sra.org.uk/consumers/register/organisation/?sraNumber=636433"
               target="_blank"
               rel="noopener noreferrer"
+              class="flex items-center justify-center w-16 h-16 border-2 border-gray-400 rounded-lg text-center hover:border-gold transition-colors"
             >
-              <img
-                src="https://www.sra.org.uk/media/sra-digital-badge.png"
-                alt="Solicitors Regulation Authority"
-                width="64"
-                height="64"
-                loading="lazy"
-              />
+              <div>
+                <span class="block text-[10px] font-bold text-gray-300 leading-tight">REGULATED BY</span>
+                <span class="block text-[10px] font-bold text-gold leading-tight mt-0.5">SRA</span>
+                <span class="block text-[8px] text-gray-400 leading-tight">636433</span>
+              </div>
             </a>
             <!-- CQS Badge -->
             <a
