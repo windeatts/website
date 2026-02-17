@@ -38,11 +38,27 @@ const departmentLabels: Record<string, string> = {
 };
 
 const departmentLabel = departmentLabels[member.data.department] || member.data.department;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: member.data.name,
+  jobTitle: member.data.title,
+  email: member.data.email,
+  telephone: member.data.phone,
+  image: member.data.photo ? `https://www.windeatts.co.uk${member.data.photo}` : undefined,
+  worksFor: {
+    '@type': 'LegalService',
+    name: 'Windeatts Solicitors',
+    url: 'https://www.windeatts.co.uk',
+  },
+};
 ---
 
 <BaseLayout
   title={member.data.name}
   description={`${member.data.name} — ${member.data.title} at Windeatts Solicitors. ${member.data.role} in the ${departmentLabel} department.`}
+  jsonLd={jsonLd}
 >
   <Hero title={member.data.name} subtitle={member.data.title} size="sm" />
   <Breadcrumbs items={[{ label: 'Our Team', href: '/our-team' }, { label: member.data.name }]} />

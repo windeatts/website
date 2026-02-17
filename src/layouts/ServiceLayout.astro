@@ -16,9 +16,26 @@ const { title, description, category, department, relatedServices = [], teamMemb
 
 const categoryLabel = category === 'personal' ? 'Services for You' : 'Services for Business';
 const categoryHref = category === 'personal' ? '/services-for-you' : '/services-for-business';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: title,
+  description,
+  provider: {
+    '@type': 'LegalService',
+    name: 'Windeatts Solicitors',
+    url: 'https://www.windeatts.co.uk',
+    telephone: '01548 852727',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Devon, United Kingdom',
+  },
+};
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Hero title={title} size="sm" />
   <Breadcrumbs items={[{ label: categoryLabel, href: categoryHref }, { label: title }]} />
 
